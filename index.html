@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staffing Simulator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="top-header-bar">
+          <div class="brand-group">
+            <img src="DHL_logo_rgb.png" alt="DHL Logo" class="dhl-logo" />
+            <div class="header-text">
+              <span class="eyebrow">CVG Daily Operating Plan Simulation</span>
+              <h1>Engineering Staffing Simulator</h1>
+            </div>
+          </div>
+          <img src="CVG IE Logo.png" alt="CVG IE Logo" class="cvg-logo" />
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="kpi-row">
+          <div class="kpi-tile">
+            <span class="kpi-label">Volume</span>
+            <strong id="kpiVolume">50</strong>
+            <small>pieces</small>
+          </div>
+          <div class="kpi-tile">
+            <span class="kpi-label">Sort Span</span>
+            <strong id="kpiSortSpan">1h</strong>
+            <small>hours</small>
+          </div>
+          <div class="kpi-tile">
+            <span class="kpi-label">Total Work Rate</span>
+            <strong id="kpiWorkRate">0</strong>
+            <small>pieces/hr</small>
+          </div>
+          <div class="kpi-tile highlight-kpi">
+            <span class="kpi-label">Required Headcount</span>
+            <strong id="kpiStaff">1</strong>
+            <small>headcount</small>
+          </div>
+        </section>
+
+        <section class="panel combined-panel">
+          <div class="section-header">
+            <h2>DOP Inputs</h2>
+          </div>
+
+          <div class="combined-layout">
+            <div class="input-column">
+              <div class="control-group">
+                <div class="label-row">
+                  <label for="volume">Volume</label>
+                  <span id="volumeValue" class="value-pill">50 pieces</span>
+                </div>
+                <input id="volume" type="range" min="50" max="300000" step="50" value="50" />
+                <div class="range-scale">
+                  <span>50</span>
+                  <span>300,000</span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="label-row">
+                  <label for="sortSpan">Sort Span</label>
+                  <span id="sortSpanValue" class="value-pill">1 hour</span>
+                </div>
+                <input id="sortSpan" type="range" min="0" max="11" step="1" value="0" />
+                <div class="range-scale">
+                  <span>1h</span>
+                  <span>12h</span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="label-row">
+                  <label for="leadPosition">Lead Position</label>
+                  <span id="leadPositionValue" class="value-pill">0 headcount</span>
+                </div>
+                <div class="number-box compact-box">
+                  <input id="leadPosition" type="number" min="0" step="1" value="0" />
+                  <span>headcount</span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="label-row">
+                  <label for="breakType">Break Impact</label>
+                  <span id="breakTypeValue" class="value-pill">No break</span>
+                </div>
+                <select id="breakType" class="select-box">
+                  <option value="0">No break</option>
+                  <option value="15">15 min break</option>
+                  <option value="30">30 min break</option>
+                </select>
+              </div>
+            </div>
+
+            <aside class="summary-column">
+              <div class="summary-box">
+                <h3>Staffing summary</h3>
+                <p id="summaryText">
+                  With a volume of 50 pieces, a 1 hour sort span, and a work rate of 50 pieces per hour,
+                  1 headcount is required.
+                </p>
+              </div>
+            </aside>
+          </div>
+
+          <div class="process-box process-box--secondary">
+            <h3>Process steps and work rates</h3>
+            <table class="process-table">
+              <thead>
+                <tr>
+                  <th>Process</th>
+                  <th>Work rate (pieces/hr)</th>
+                  <th>Staff required</th>
+                </tr>
+              </thead>
+              <tbody id="processList"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
