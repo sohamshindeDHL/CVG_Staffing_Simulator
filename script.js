@@ -185,6 +185,23 @@ leadPositionInput.addEventListener("input", () => {
   updateDashboard();
 });
 
+const simulationButtons = document.querySelectorAll(".simulation-button");
+const personalSimulation = document.getElementById("personalSimulation");
+const b2Simulation = document.getElementById("b2Simulation");
+const b5Simulation = document.getElementById("b5Simulation");
+
+simulationButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    simulationButtons.forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+
+    const selected = button.dataset.simulation;
+    personalSimulation.hidden = selected !== "personal";
+    b2Simulation.hidden = selected !== "b2";
+    b5Simulation.hidden = selected !== "b5";
+  });
+});
+
 updateBreakDisplay();
 updateLeadPositionDisplay();
 renderProcessList();

@@ -21,11 +21,21 @@
         </div>
       </header>
 
+      <nav class="simulation-switcher" aria-label="Simulation selection">
+        <button type="button" class="simulation-button" data-simulation="b2">B2 Simulation</button>
+        <button type="button" class="simulation-button" data-simulation="b5">B5 Simulation</button>
+        <button type="button" class="simulation-button active" data-simulation="personal">Personal Simulation</button>
+      </nav>
+
       <main class="dashboard">
+        <section id="b2Simulation" class="blank-simulation" hidden aria-label="B2 Simulation"></section>
+        <section id="b5Simulation" class="blank-simulation" hidden aria-label="B5 Simulation"></section>
+
+        <section id="personalSimulation" class="personal-simulation">
         <section class="kpi-row">
           <div class="kpi-tile">
             <span class="kpi-label">Volume</span>
-            <strong id="kpiVolume">50</strong>
+            <strong id="kpiVolume">30</strong>
             <small>pieces</small>
           </div>
           <div class="kpi-tile">
@@ -124,6 +134,7 @@
               <tbody id="processList"></tbody>
             </table>
           </div>
+        </section>
         </section>
       </main>
     </div>
